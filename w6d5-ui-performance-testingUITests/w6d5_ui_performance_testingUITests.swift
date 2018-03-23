@@ -46,10 +46,20 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
     }
     
     
+    func deleteMeal(mealName:String, numberOfCalories: Int)
+    {
+        let tablesQuery = XCUIApplication().tables
+        let staticText = app.tables.staticTexts["\(mealName) - \(numberOfCalories)"]
+        if staticText.exists {
+            staticText.swipeLeft()
+            tablesQuery.buttons["Delete"].tap()
+        }
+    }
+    
     func testAddMeal()
     {
         addNewMeal(mealName: "Burger", numberOfCalories: 300)
-        sleep(10)
+//        sleep(10)
     }
     
     
@@ -58,12 +68,7 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
     
     func testDeleteMeal()
     {
-        let tablesQuery = XCUIApplication().tables
-        let staticText = app.tables.staticTexts["Burger - 300"]
-        if staticText.exists {
-            staticText.swipeLeft()
-            tablesQuery.buttons["Delete"].tap()
-        }
+        deleteMeal(mealName: "Burger", numberOfCalories: 300)
     }
     
     
