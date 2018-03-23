@@ -45,6 +45,7 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
         textField.typeText("300")
         addAMealAlert.buttons["Ok"].tap()
         
+        sleep(10)
     }
     
 }
