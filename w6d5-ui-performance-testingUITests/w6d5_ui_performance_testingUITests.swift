@@ -31,19 +31,23 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        
-        
+    func addNewMeal(mealName:String, numberOfCalories: Int)
+    {
         app.navigationBars["Master"].buttons["Add"].tap()
         
         let addAMealAlert = app.alerts["Add a Meal"]
         let collectionViewsQuery = addAMealAlert.collectionViews
-        collectionViewsQuery.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .textField).element.typeText("Burger")
+        collectionViewsQuery.children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .textField).element.typeText(mealName)
         
         let textField = collectionViewsQuery.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .textField).element
         textField.tap()
-        textField.typeText("300")
+        textField.typeText("\(numberOfCalories)")
         addAMealAlert.buttons["Ok"].tap()
+    }
+    
+    func testExample() {
+        
+        addNewMeal(mealName: "Burger", numberOfCalories: 300)
         
         sleep(10)
     }
