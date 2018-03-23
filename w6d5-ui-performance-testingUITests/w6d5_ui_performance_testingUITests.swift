@@ -76,7 +76,7 @@ class w6d5_ui_performance_testingUITests: XCTestCase {
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["Burger - 300"]/*[[".cells.staticTexts[\"Burger - 300\"]",".staticTexts[\"Burger - 300\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         //        app.navigationBars["Detail"].buttons["Master"].tap()
         //        let detailViewLabel : XCUIElement = app.otherElements.element(matching: UILabel, identifier: "detailViewControllerLabel")
-        let detailViewLabel : XCUIElement = app.staticTexts.element(matching: .any, identifier: "detailViewControllerLabel")
+        let detailViewLabel: XCUIElement = app.staticTexts["detailLabel"]
        
         XCTAssertEqual(detailViewLabel.label, "Burger - 300")
         
